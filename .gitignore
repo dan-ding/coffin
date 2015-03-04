@@ -1,0 +1,16 @@
+.git
+!.gitignore
+.sass_cache
+node_modules
+*~
+*.bak
+.*.swp
+_*/
+.sass-cache
+.DS_Store
+.hg
+.lock-wscript
+.svn
+.wafpickle-*
+CVS
+npm-debug.log
