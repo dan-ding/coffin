@@ -1,0 +1,59 @@
+/*!
+  coffin.css v1.0.0 | MIT License |
+  Copyright (c) 2015 Dante Piombino
+  
+  *plug*
+  Listen to the Wreckids! http://www.thewreckids.com/
+
+  Super props to:
+  Skeleton | MIT License | www.getskeleton.com
+  Copyright (c) Dave Gamache
+
+  normalize.css | MIT License | git.io/normalize
+  Copyright (c) Nicolas Gallagher and Jonathan Neal
+
+  Reset CSS v2.0 http://meyerweb.com/eric/tools/css/reset/ v2.0
+  License: Public Domain
+
+  and Alice, Tom Waits, Mogwai, and Tim Berners-Lee
+*/
+
+// #Import variables and mixins
+@import "functions";
+@import "variables";
+@import "mixins";
+
+@import "metadata";
+@import "sectioning";
+@import "grouping";
+@import "text";
+@import "embedded";
+@import "tables";
+@import "form";
+@import "interactive";
+@import "grid";
+@import "aux";
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+// Larger than mobile
+@media (min-width: $phone_width) {}
+
+// Larger than phablet (also point when grid becomes active)
+@media (min-width: $phablet_width) {}
+
+// Larger than tablet
+@media (min-width: $tablet_width) {}
+
+// Larger than desktop
+@media (min-width: $desktop_width) {}
+
+// Larger than Desktop HD
+@media (min-width: $desktop_hd_width) {}

@@ -1,0 +1,111 @@
+/**
+ * Remove default margin
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ * [B] box model
+ * [R] reset
+ * [S] Skeleton
+ */
+blockquote,
+div,
+dl,
+dt,
+dd,
+figure,
+figcaption,
+hr,
+p,
+pre,
+ol,
+ul,
+li {
+  display: block; /* [R] */
+  box-sizing: border-box; /* [B] */
+  margin:0; /* [R], [S ol,ul,p] */
+  padding:0; /* [R], [S ol, ul] */
+  border:0; /* [R] */
+  font-size:100%; /* [R] */
+  background-color:transparent; /* [R] */
+  position: relative; /* [R] */
+}
+
+/**
+ * N1. Address margin not present in IE 8/9 and Safari.
+ * [S] Skeleton
+ */
+
+figure {
+  @include coffin-ie(margin, 1rem 4rem $skel_spacing_bottom); /* [S], [IE8], N1 */
+}
+
+/**
+ * N1. Address differences between Firefox and other browsers.
+ * [S] Skeleton
+ */
+
+hr {
+  @include coffin-ie(margin, 3rem 0 3.5rem 0); /* [S], [IE8] */
+  box-sizing: content-box; /* N1 */
+  height: 0; /* N1 */
+  border-width: 0; /* [S] */
+  border-top: 1px solid #E1E1E1; /* [S] */
+}
+
+/**
+ * N1. Contain overflow in all browsers.
+ * N2. Address odd `em`-unit font size rendering in all browsers.
+ * N3. Improve readability of pre-formatted text in all browsers
+ * [S] Skeleton
+ */
+
+pre {
+  @include coffin-ie(font-size, 1.5rem); /* N2 */
+  @include coffin-ie(margin-bottom, $skel_spacing_bottom); /* [S], [IE8] */
+  overflow: auto; /* N1 */
+  font-family: monospace, monospace; /* N2 */
+  white-space: pre; /* N3 */
+  white-space: pre-wrap; /* N3 */
+  word-wrap: break-word; /* N3 */
+
+  & > code {
+    @include coffin-ie(padding, 1rem 1.5rem); /* [S], [IE8] */
+    display: block; /* [S] */
+    white-space: pre; /* [S] */
+  }
+}
+
+/**
+ * Skeleton Lists
+ */
+ul {
+  list-style: circle inside;
+}
+ol {
+  list-style: decimal inside;
+}
+
+ol,
+ul {
+  @include coffin-ie(margin-bottom, $skel_spacing_bottom); /* [S], [IE8] */
+
+  & ol,
+  & ul {
+    @include coffin-ie(margin, 1.5rem 0 1.5rem 3rem); /* [S], [IE8] */
+    font-size: 90%;
+  }
+}
+
+li {
+  @include coffin-ie(margin-bottom, 1rem); /* [S], [IE8] */
+  display: list-item;
+}
+
+/**
+ * Skeleton Spacing
+ */
+blockquote,
+dl,
+p {
+  @include coffin-ie(margin-bottom, $skel_spacing_bottom); /* [S], [IE8] */
+}

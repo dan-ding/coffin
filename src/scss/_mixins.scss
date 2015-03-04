@@ -1,0 +1,94 @@
+// handle up to thirty-two columns
+$column-names: one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,twentyone,twentytwo,twentythree,twentyfour,twentyfive,twentysix,twentyseven,twentyeight,twentynine,thirty,thrityone,thirtytwo;
+
+// outputs the skeleton columns and their percentage widths
+// $prefix for if someone wants more than one column set to make
+@mixin columns($column-count: 12, $gutter: 4%, $prefix: '') {
+  $column-width: (100% + $gutter)/ $column-count;
+
+  .#{$prefix}one.column,
+  .#{$prefix}one.columns { width: ($column-width - $gutter); }
+
+  @for $i from 2 through $column-count {
+    @if $i != $column-count {
+      .#{$prefix}#{nth($column-names, $i)}.columns { width: ($column-width * $i) - $gutter; }
+    } @else {
+      .#{$prefix}#{nth($column-names, $i)}.columns { width: 100%; margin-left: 0; }
+    }
+  }
+
+  .#{$prefix}one-third.column { width: 30.6666666667%; }
+  .#{$prefix}two-thirds.column { width: 65.3333333333%; }
+  .#{$prefix}one-half.column { width: 48%; }
+}
+
+// outputs the skeleton offset columns and their percentage widths
+// $prefix for if someone wants more than one column set
+@mixin offsets($column-count: 12, $gutter: 4%, $prefix: '') {
+  $column-width: (100% + $gutter)/ $column-count;
+
+  @for $i from 1 through ($column-count - 1) {
+    .#{$prefix}offset-by-#{nth($column-names, $i)}.column,
+    .#{$prefix}offset-by-#{nth($column-names, $i)}.columns { margin-left: ($column-width * $i); }
+  }
+
+  .#{$prefix}offset-by-one-third.column,
+  .#{$prefix}offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .#{$prefix}offset-by-two-thirds.column,
+  .#{$prefix}offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+  .#{$prefix}offset-by-one-half.column,
+  .#{$prefix}offset-by-one-half.columns     { margin-left: 52%; }
+}
+
+// set color rule to support non-rgba IE8
+@mixin coffin-color($color, $alpha: 1) {
+  color: $color; /* [IE8] */
+  color: (rgba($color, $alpha));
+}
+
+// set any rule to duplicate rule if rem is in the value for IE8
+@mixin coffin-ie($prop, $vals) {
+  $ret: ();
+  $vals: join($vals, (), space);
+
+  @each $value in $vals {
+    @if unit($value) == 'rem' {
+      $ret: append($ret, rem2px($value), space);
+    } @else {
+      $ret: append($ret, $value);
+    }
+  }
+
+  //make sure they are both formatted the same
+  @if join($ret, (), space) == join($vals, (), space) {
+    #{$prop}: $vals;
+  } @else {
+    #{$prop}: $ret; /* [IE8] */
+    #{$prop}: $vals;
+  }
+}
+
+// clearfix! only to use with :after
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// @see http://pivotallabs.com/bulletproof-font-face-syntax-with-sass/
+// @see http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax
+@mixin declare-font-face($font_family, $font_filename, $font_weight : normal, $font_style :normal, $font_stretch : normal, $font_path: $font_path) {
+  @font-face {
+    font-family: '#{$font_family}';
+    src: url('#{$font_path}#{$font_filename}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font_path}#{$font_filename}.woff') format('woff'),
+         url('#{$font_path}#{$font_filename}.ttf') format('truetype'),
+         url('#{$font_path}#{$font_filename}.svg##{$font_family}') format('svg');
+
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}

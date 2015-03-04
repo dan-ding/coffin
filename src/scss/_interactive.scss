@@ -1,0 +1,17 @@
+/**
+ * [B] set box model
+ * [R] reset
+ */
+details,
+menu,
+menuitem,
+summary {
+  display: block; /* [R] */
+  box-sizing: border-box; /* [B] */
+  margin:0; /* [R] */
+  padding:0; /* [R] */
+  border:0; /* [R] */
+  font-size:100%; /* [R] */
+  background-color:transparent; /* [R] */
+  position: relative; /* [R] */
+}

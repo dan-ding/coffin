@@ -1,0 +1,158 @@
+/**
+ * N1. Remove the gray background color from active links in IE 10.
+ * [R] reset
+ * still considering border-box, may cause issues with how folks use <span>
+ */
+a,
+abbr,
+b,
+bdi,
+bdo,
+br,
+cite,
+code,
+data,
+del,
+dfn,
+em,
+i,
+ins,
+kbd,
+mark,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+small,
+span,
+strong,
+sub,
+sup,
+time,
+u,
+var,
+wbr {
+  margin:0; /* [R] */
+  padding:0; /* [R] */
+  border:0; /* [R] */
+  font-size:100%; /* [R] */
+  vertical-align:baseline; /* [R] */
+  background-color:transparent; /* [R], N1 */
+  box-sizing: content-box; /* [R] */
+}
+
+/**
+ * N1. Address `outline` inconsistency between Chrome and other browsers.
+ * [S] Skeleton
+ * M1. re-add outline on focus for UX
+ */
+a {
+  color: $link_color; /* [S] */
+  text-decoration: $link_decoration; /* [S] */
+
+  &:hover {
+    color: $link_hover_color; /* [S] */
+    text-decoration: $link_hover_decoration; /* [S] */
+  }
+
+  &:focus {
+    outline: thin solid skyblue; /* M1, N1 */
+  }
+}
+
+/**
+ * N1. Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted; /* N1 */
+}
+
+/**
+ * N1. Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold; /* N1 */
+}
+
+/**
+ * N1. Address odd `em`-unit font size rendering in all browsers.
+ */
+
+kbd,
+samp {
+  font-family: monospace, monospace; /* N1 */
+  font-size: 1em; /* N1 */
+}
+
+/**
+ * N1. Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic; /* N1 */
+}
+
+/**
+ * N1. Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0; /* N1 */
+  color: #000; /* N1 */
+}
+
+/**
+ * N1. Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%; /* N1 */
+}
+
+/**
+ * N1. Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%; /* N1 */
+  line-height: 0; /* N1 */
+  position: relative; /* N1 */
+  vertical-align: baseline; /* N1 */
+}
+
+/**
+ * N1. Correction for preventing `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sup {
+  top: -0.5em; /* N1 */
+}
+
+/**
+ * N1. Correction for preventing `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub {
+  bottom: -0.25em; /* N1 */
+}
+
+/**
+ * N1. Address odd `em`-unit font size rendering in all browsers.
+ * [S] skeleton
+ */
+code {
+  @include coffin-ie(padding, .2rem .5rem); /* [S], [IE8] */
+  @include coffin-ie(margin, 0 0.2rem); /* [S], [IE8] */
+  font-family: monospace, monospace; /* N1 */
+  font-size: 90%; /* [S], N1 */
+  white-space: nowrap; /* [S] */
+  background: #F1F1F1; /* [S] */
+  border: 1px solid #E1E1E1; /* [S] */
+  border-radius: 4px; /* [S] */
+}

@@ -1,0 +1,60 @@
+/**
+ * N1. Correct `inline-block` display not defined in IE 8/9.
+ * N2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ * N3. Remove border when inside `a` element in IE 8/9/10.
+ * [R] reset
+ * [B] box-sizing - the content size specified is most usually the size desired for embedded stuff
+ */
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+math,
+object,
+progress,
+source,
+svg,
+track,
+video {
+  display: inline-block; /* N1 */
+  vertical-align: baseline; /* N2 */
+  box-sizing: content-box; /* [B] */
+  margin:0; /* [R] */
+  padding:0; /* [R] */
+  border:0; /* [R], N3 */
+  font-size:100%; /* [R] */
+  background-color:transparent; /* [R] */
+  position: relative; /* [R] */
+}
+
+/**
+ * N1. Prevent modern browsers from displaying `audio` without controls.
+ * N2. Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none; /* N1 */
+  height: 0; /* N2 */
+}
+
+/**
+ * N1. Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden; /* N1 */
+}
+
+/**
+ * [R] reset
+ */
+
+area,
+map,
+param,
+track { 
+  display: none; /* [R] */
+}
+

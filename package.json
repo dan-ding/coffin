@@ -1,0 +1,43 @@
+{
+  "name": "coffin",
+  "title": "Coffin CSS",
+  "version": "1.0.0",
+  "description": "A responsive, boxed, sassed, minimalist, reset boilerplate css based on Skeleton",
+  "main": "Gruntfile.js",
+  "directories": {
+    "src": "src",
+    "build": "build"
+  },
+  "repository": {
+    "type": "none"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-csslint": "^0.4.0",
+    "grunt-contrib-cssmin": "^0.11.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "which": "^1.0.8",
+    "win-spawn": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-csslint": "^0.4.0",
+    "grunt-contrib-cssmin": "^0.11.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "which": "^1.0.8",
+    "win-spawn": "^2.0.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "coffin",
+    "css",
+    "sass",
+    "responsive",
+    "boilerplate",
+    "box-model"
+  ],
+  "author": "Dante Piombino",
+  "license": "MIT"
+}

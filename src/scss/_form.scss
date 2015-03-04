@@ -1,0 +1,298 @@
+/**
+ * [R] reset
+ * [B] box-sizing - the content size specified is most usually the size desired for embedded stuff
+ *
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ *
+ * It's recommended that you don't attempt to style checkbox/radio elements
+ * as Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * N1. Address box sizing set to `content-box` in IE 8/9/10.
+ * N2. Remove excess padding in IE 8/9/10.
+ * N3. Correct `color` not being inherited in IE 8/9/10/11.
+ * N4. Remove padding so people aren't caught out if they zero out fieldsets.
+ * N5. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * N6. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+button,
+datalist,
+fieldset,
+form,
+input,
+keygen,
+label,
+legend,
+meter,
+optgroup,
+option,
+output,
+progress,
+select,
+textarea
+{
+  box-sizing: border-box; /* [B], N1 */
+  margin:0; /* [R], N5 */
+  padding:0; /* [R], N2, N4 */
+  border:0; /* [R], N3 */
+  font-size:100%; /* [R] */
+  vertical-align:baseline; /* [R], N6 */
+  background-color:transparent; /* [R] */
+  position: relative; /* [R] */
+}
+
+form {
+  @include coffin-ie(margin-bottom, $skel_spacing_bottom); /* [S], [IE8] */
+}
+
+/**
+ * N1. Correct `inline-block` display not defined in IE 8/9.
+ */
+
+progress {
+  display: inline-block; /* N1 */
+}
+
+/**
+ * N1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * N2. Correct font properties not being inherited.
+ */
+
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* N1 */
+  font: inherit; /* N2 */
+}
+
+/**
+ * N1. Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * N2. Correct `select` style inheritance in Firefox.
+ */
+
+select {
+  text-transform: none; /* N1, N2 */
+}
+
+/**
+ * N1. Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * N2. Safari (but not Chrome) clips the cancel button when the search input has
+ *   padding (and `textfield` appearance).
+ * N3. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * N4. Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ *   `font-size` values of the `input`, it causes the cursor style of the
+ *   decrement button to change from `default` to `text`.
+ * N5. Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ *   the UA stylesheet.
+ * [S] Skeleton
+ */
+
+input {
+  line-height: normal; /* N5 */
+
+  &[type="search"] {
+    -webkit-appearance: none; /* N3 */
+    -moz-appearance: textfield; /* N3 */
+  }
+
+  &[type="search"]::-webkit-search-cancel-button,
+  &[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; /* N1, N2 */
+    -moz-appearance: none; /* N1, N2 */
+  }
+  
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    height: auto; /* N4 */
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    display: inline; /* [S] */
+  }
+}
+
+/**
+ * N1. Correct inability to style clickable `input` types in iOS.
+ * N2. Avoid the WebKit bug in Android 4.0.* where (8) destroys native `audio`
+ *    and `video` controls.
+*/
+button,
+html input[type="button"], /* N1 */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  -moz-appearance: button;
+  -webkit-appearance: button; /* N2 */
+}
+
+/**
+ * N1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * N2. Correct font properties not being inherited.
+ * N3. Address `overflow` set to `hidden` in IE 8/9/10/11.
+ * N4. Address inconsistent `text-transform` inheritance for `button` and `select`.
+ *    Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * N5. Remove inner padding and border in Firefox 4+.
+ * N6. Address box sizing set to `content-box` in IE 8/9/10.
+ * N7. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * [S] Skeleton Buttons
+ * [R] reset
+ * [B] box sizing
+ * [R1] set outline instead of removal
+ */
+.button,
+button,
+html input[type="button"], /* N8 */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  @include coffin-color(#555); /* N1 */
+  @include coffin-ie(margin-bottom, 1rem); /* [S] */
+  @include coffin-ie(letter-spacing, .1rem);
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  text-align: center;
+  font: inherit; /* N2 */
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  text-transform: uppercase; /* [S], N4 */
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent; /* [R], [S] */
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer; /* [S], N7 */
+  box-sizing: border-box; /* [B], [S], N6 */
+  overflow: visible; /* N3 */
+
+  &:hover,
+  &:focus {
+    color: #333;
+    border-color: #888;
+  }
+
+  &:focus {
+    outline: #5B9DD9 auto 5px; /* [R1] */
+  }
+
+  &.button-primary {
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+  }
+
+  &.button-primary:hover,
+  &.button-primary:focus {
+    color: #FFF;
+    background-color: #1EAEDB;
+    border-color: #1EAEDB;
+  }
+}
+
+
+/**
+ * N1. Re-set default cursor for disabled elements.
+ */
+.disabled,
+button[disabled],
+html input[disabled] {
+  cursor: default; /* N1 */
+}
+
+/**
+ * N1. Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0; /* N1 */
+  padding: 0; /* N1 */
+}
+
+/**
+ * N1. Define consistent border, margin, and padding.
+ * [S] Skeleton
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0; /* N1 */
+  margin: 0 2px; /* N1 */
+  padding: 0; /* [S], N1 */
+  border-width: 0; /* [S] */
+}
+
+/**
+ * N1. Remove default vertical scrollbar in IE 8/9/10/11.
+ * [S] Skeleton
+ */
+
+textarea {
+  overflow: auto; /* N1 */
+  min-height: 65px; /* [S] */
+  padding-top: 6px; /* [S] */
+  padding-bottom: 6px; /* [S] */
+}
+
+/**
+ * N1. Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold; /* N1 */
+}
+
+/**
+ * Skeleton Forms
+ * set outline instead of removal
+ */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px; /* [S] */
+  padding: 6px 10px; /* [S], The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 1px solid #33C3F0;
+    outline: thin solid skyblue;
+  }
+}
+
+label,
+legend {
+  @include coffin-ie(margin-bottom, .5rem);
+  display: block;
+  font-weight: 600;
+}
+
+label > .label-body {
+  @include coffin-ie(margin-left, .5rem);
+  display: inline-block;
+  font-weight: normal;
+}
+
+input,
+textarea,
+select,
+fieldset {
+  @include coffin-ie(margin-bottom, 1.5rem); /* [S], [IE8] */
+}
+

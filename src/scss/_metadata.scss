@@ -1,0 +1,40 @@
+/**
+ * N1. Set default font family to serif.
+ * N2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ * [R] reset
+ * [S] html is set to 62.5% so that all the REM measurements throughout Skeleton are based on 10px sizing. So basically 1.5rem = 15px :)
+ */
+
+html {
+  @include coffin-color($base_text_color); /* [R] */
+  font-size: $base_multiplier * 100%; /* [S] */
+  font-family: serif; /* N1 */
+  -moz-text-size-adjust: auto; /* N2 */
+  -ms-text-size-adjust: 100%; /* N2 */
+  -webkit-text-size-adjust: 100%; /* N2 */
+  -webkit-font-smoothing: antialiased;
+  margin:0; /* [R] */
+  padding:0; /* [R] */
+  border:0; /* [R] */
+  vertical-align:baseline; /* [R] */
+  background-color:transparent; /* [R] */
+}
+
+/**
+ * N1. Address `[hidden]` styling not present in IE 8/9/10.
+ * N2. Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ * Find a way not to use unqualified selector
+ * [R] reset - display none is none always !important; inline changes by js will override safely
+ */
+[hidden],
+base,
+head,
+link,
+meta,
+script,
+style, /* meta! */
+template,
+title {
+  display: none !important; /* N1, N2, [R] */
+}

@@ -1,0 +1,55 @@
+/**
+ * [R] reset
+ * box-sizing isn't necessary... ?
+ */
+caption,
+col,
+colgroup,
+td,
+th
+tr,
+table,
+tbody,
+tfoot,
+thead {
+  margin:0; /* [R] */
+  padding:0; /* [R] */
+  border:0; /* [R] */
+  font-size:100%; /* [R] */
+  vertical-align:baseline; /* [R] */
+  background-color:transparent; /* [R] */
+  position: relative; /* [R] */
+}
+
+/**
+ * N1. Remove most spacing between table cells.
+ * [R] reset
+ * [B] box-sizing
+ * [S] Skeleton
+ */
+
+table {
+  @include coffin-ie(margin-bottom, $skel_spacing_bottom); /* [S], [IE8] */
+  border-collapse: collapse; /* N1 */
+  border-spacing: 0; /* N1 */
+  box-sizing: border-box; /* [B] */
+}
+
+/**
+ * [S] skeleton
+ */
+
+th,
+td {
+  padding: 12px 15px; /* [S] */
+  text-align: left; /* [S] */
+  border-bottom: 1px solid #E1E1E1; /* [S] */
+
+  &:first-child {
+    padding-left: 0; /* [S] */
+  }
+
+  &:last-child {
+    padding-right: 0; /* [S] */
+  }
+}

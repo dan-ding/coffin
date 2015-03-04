@@ -1,0 +1,14 @@
+/**
+*
+*
+*/
+
+// get a number from a unit
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// convert rem to px using the base multiplier, defaulting to 16 * 0.625
+@function rem2px($unit) {
+  @return (strip-unit($unit) * ($base_size) + px);
+}

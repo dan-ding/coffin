@@ -1,0 +1,60 @@
+
+.container {
+  margin: 0 auto;
+  @include coffin-ie(padding, 0 2rem); /* [S], [IE8] */
+
+  width: 100%;
+  max-width: $coffin_container_width;
+
+  & .alpha {
+    margin-left: 0; /* Skeleton v1 */
+  }
+  & .omega {
+    margin-right: 0; /* Skeleton v1 */
+  }
+}
+
+.column,
+.columns {
+  float: left;
+  width: 100%;
+}
+
+.alpha-omega {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row {
+  margin-bottom: $skel_spacing_bottom; /* skeleton v1 */
+}
+
+/* For devices larger than 400px */
+@media (min-width: $phone_width) {
+  .container {
+    width: 85%;
+    padding: 0;
+  }
+}
+
+// #Desktop Grid
+/* For devices larger than 550px */
+@media (min-width: $phablet_width) {
+  .container {
+    width: 80%;
+  }
+
+  .column,
+  .columns {
+    margin-left: $coffin_gutter;
+  }
+
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0;
+  }
+
+  @include columns($coffin_columns, $coffin_gutter);
+  @include offsets($coffin_columns, $coffin_gutter);
+
+}

@@ -1,0 +1,28 @@
+// #Base colors
+$base_text_color: #000;
+$base_bg_color: #fff;
+
+// Grid
+$coffin_container_width: 960px;
+$coffin_gutter: 4% !default; //use percentage as the skeleton grid is based on them
+$coffin_columns: 12 !default;
+
+//html is set to this so that all the REM measurements throughout are based on 10px sizing. So basically 1.5rem = 15px
+$base_multiplier: 0.625;
+$base_size: $base_multiplier * 16;
+
+// skeleton has this implying a uniformity on the UI
+$skel_spacing_bottom: 2.5rem;
+
+// used for responsive sizings
+$phone_width: 400px;
+$phablet_width: 550px;
+$tablet_width: 750px;
+$desktop_width: 1000px;
+$desktop_hd_width: 1200px;
+
+// #Links
+$link_color: #1eaedb !default;
+$link_decoration: underline !default;
+$link_hover_color: #0FA0CE !default;
+$link_hover_decoration: none !default;

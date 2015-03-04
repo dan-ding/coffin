@@ -1,0 +1,6 @@
+{
+  "box-sizing": false, // it's what started this
+  "unqualified-attributes": false, // should just be the one [hidden] which we have for IE8
+  "adjoining-classes": false, // don't care about IE6
+  "unique-headings": false // we know what we are doing
+}
